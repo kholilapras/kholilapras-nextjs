@@ -1,0 +1,212 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import { ChevronLeft, ChevronRight, Download, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { useLanguage } from "@/contexts/language-context"
+
+interface ImageDialogProps {
+  isOpen: boolean
+  onClose: () => void
+  images: string[]
+  initialIndex: number
+  projectTitle: string
+  projectUrl?: string
+}
+
+export function ImageDialog({ isOpen, onClose, images, initialIndex, projectTitle, projectUrl }: ImageDialogProps) {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex)
+  const [isLoading, setIsLoading] = useState(true)
+  const { t } = useLanguage()
+
+  useEffect(() => {
+    setCurrentIndex(initialIndex)
+    setIsLoading(true)
+  }, [initialIndex, isOpen])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return
+
+      switch (e.key) {
+        case "ArrowLeft":
+          e.preventDefault()
+          goToPrevious()
+          break
+        case "ArrowRight":
+          e.preventDefault()
+          goToNext()
+          break
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isOpen, currentIndex])
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+    setIsLoading(true)
+  }
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+    setIsLoading(true)
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+    setIsLoading(true)
+  }
+
+  const handleDownload = () => {
+    const link = document.createElement("a")
+    link.href = images[currentIndex]
+    link.download = `${projectTitle}-image-${currentIndex + 1}.jpg`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const imageCounterText = t.modal.imageCounter
+    .replace("{current}", (currentIndex + 1).toString())
+    .replace("{total}", images.length.toString())
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-background border-0 shadow-2xl">
+        <DialogHeader className="p-4 pb-2 border-b border-border">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <DialogTitle className="text-lg font-semibold text-foreground">{projectTitle}</DialogTitle>
+              <span className="text-sm text-muted-foreground">{imageCounterText}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              {/* Navigation Buttons */}
+              {images.length > 1 && (
+                <>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={goToPrevious}
+                    className="hover:bg-muted"
+                    aria-label={t.modal.previousImage}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={goToNext}
+                    className="hover:bg-muted"
+                    aria-label={t.modal.nextImage}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </>
+              )}
+              {/* Download Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleDownload}
+                className="hover:bg-muted"
+                aria-label={t.modal.downloadAlt}
+              >
+                <Download className="h-4 w-4" />
+              </Button>
+              {/* Close Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={onClose}
+                className="hover:bg-muted"
+                aria-label={t.modal.closeAlt}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </DialogHeader>
+
+        {/* Main Image Container */}
+        <div className="flex-1 relative p-4">
+          <div className="relative w-full h-full min-h-[60vh] bg-muted/20 rounded-lg overflow-hidden">
+            <Image
+              src={images[currentIndex] || "/placeholder.svg"}
+              alt={`${projectTitle} - ${imageCounterText}`}
+              fill
+              className="object-contain"
+              onLoad={() => setIsLoading(false)}
+              priority
+            />
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+                <div className="w-8 h-8 border-2 border-muted-foreground/30 border-t-foreground rounded-full animate-spin" />
+              </div>
+            )}
+
+            {/* Navigation Arrows on Image */}
+            {images.length > 1 && (
+              <>
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background/90 border-0 w-10 h-10 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  onClick={goToPrevious}
+                  aria-label={t.modal.previousImage}
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background/90 border-0 w-10 h-10 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  onClick={goToNext}
+                  aria-label={t.modal.nextImage}
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Bottom Navigation - Only Thumbnails */}
+        {images.length > 1 && (
+          <div className="p-4 pt-0 border-t border-border">
+            {/* Thumbnail Navigation */}
+            <br />
+            <div className="flex justify-center gap-2 overflow-x-auto pb-2 max-w-full">
+              <div className="flex gap-2 px-4">
+                {images.map((image, index) => (
+                  <button
+                    key={index}
+                    className={`relative flex-shrink-0 w-20 h-14 rounded-md overflow-hidden transition-all duration-300 border-2 ${
+                      index === currentIndex
+                        ? "border-foreground scale-105 shadow-lg"
+                        : "border-transparent opacity-70 hover:opacity-100 hover:border-muted-foreground/50"
+                    }`}
+                    onClick={() => goToSlide(index)}
+                    aria-label={`${t.modal.imageCounter
+                      .replace("{current}", (index + 1).toString())
+                      .replace("{total}", images.length.toString())}`}
+                  >
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+  )
+}
