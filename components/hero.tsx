@@ -11,7 +11,8 @@ export function Hero() {
       <div className="mb-8 animate-fade-in">
         <div className="relative group mb-6">
           <Image
-            src="/placeholder.svg?height=200&width=200&text=KAP&bg=374151&color=ffffff"
+            //src="/placeholder.svg?height=200&width=200&text=KAP&bg=374151&color=ffffff"
+            src="/image/profile.jpg"
             alt={t.name}
             width={200}
             height={200}
