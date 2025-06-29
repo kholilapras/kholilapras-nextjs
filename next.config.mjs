@@ -1,24 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable experimental features for better SEO
-  experimental: {
-    optimizeCss: true,
-  },
-  
+  // Remove experimental optimizeCss that's causing the critters error
+  // experimental: {
+  //   optimizeCss: true,
+  // },
+
   // Compress images
   images: {
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
     unoptimized: true,
   },
-  
+
   // Enable compression
   compress: true,
-  
+
   // Generate static pages for better SEO
   output: 'export',
   trailingSlash: true,
-  
+
   // Headers for SEO and security
   async headers() {
     return [
@@ -54,7 +54,7 @@ const nextConfig = {
       },
     ]
   },
-  
+
   // ESLint and TypeScript configurations
   eslint: {
     ignoreDuringBuilds: true,
