@@ -5,9 +5,9 @@ export function generatePersonStructuredData() {
     name: "Kholil Abdi Prasetiyo",
     jobTitle: "Web Developer",
     description: "Experienced web developer specializing in modern UI development with React, Next.js, and TypeScript.",
-    url: "https://kholil-portfolio.vercel.app",
-    image: "https://kholil-portfolio.vercel.app/profile.jpg",
-    sameAs: ["https://github.com/kholil", "https://linkedin.com/in/kholil", "mailto:kholil@example.com"],
+    url: "https://kholilapras.vercel.app",
+    //image: "https://kholil-portfolio.vercel.app/profile.jpg",
+    sameAs: ["https://github.com/kholilapras", "https://linkedin.com/in/kholilapras", "mailto:kholilapras@gmail.com"],
     knowsAbout: [
       "Web Development",
       "Frontend Development",
@@ -22,7 +22,7 @@ export function generatePersonStructuredData() {
     ],
     alumniOf: {
       "@type": "Organization",
-      name: "Your University/School",
+      name: "Telkom University",
     },
     address: {
       "@type": "PostalAddress",

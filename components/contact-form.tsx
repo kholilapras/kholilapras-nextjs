@@ -208,9 +208,9 @@ export function ContactForm() {
 
         <div className="flex justify-center gap-4 mb-8 animate-slide-up-delay">
           {[
-            { href: "mailto:kholil@example.com", icon: Mail, label: "Email" },
-            { href: "https://github.com/kholil", icon: Github, label: "GitHub" },
-            { href: "https://linkedin.com/in/kholil", icon: Linkedin, label: "LinkedIn" },
+            { href: "mailto:kholilapras@gmail.com", icon: Mail, label: "Email" },
+            { href: "https://github.com/kholilapras", icon: Github, label: "GitHub" },
+            { href: "https://linkedin.com/in/kholilapras", icon: Linkedin, label: "LinkedIn" },
           ].map(({ href, icon: Icon, label }, index) => (
             <Button
               key={label}

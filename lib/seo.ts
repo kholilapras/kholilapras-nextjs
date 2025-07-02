@@ -52,13 +52,13 @@ export function generateSEO({
     },
 
     // Twitter
-    twitter: {
-      card: "summary_large_image",
-      title: fullTitle,
-      description,
-      images: [image],
-      creator: "@kholil_dev",
-    },
+    // twitter: {
+    //   card: "summary_large_image",
+    //   title: fullTitle,
+    //   description,
+    //   images: [image],
+    //   creator: "@kholil_dev",
+    // },
 
     // Additional meta tags
     robots: {
@@ -92,20 +92,11 @@ export function generateSEO({
 }
 
 export const defaultSEO = {
-  title: "Kholil Abdi Prasetiyo - Web Developer Portfolio",
+  title: "Kholil Abdi Prasetiyo - Portfolio",
   description:
-    "Experienced web developer specializing in modern UI development with React, Next.js, and TypeScript. Building responsive and user-friendly web applications.",
+    "Kholil Abdi Prasetiyo - Portfolio Project",
   keywords: [
-    "web developer",
-    "frontend developer",
-    "react developer",
-    "nextjs developer",
-    "typescript developer",
-    "ui developer",
-    "portfolio",
-    "kholil abdi prasetiyo",
-    "javascript developer",
-    "responsive design",
-    "modern web development",
+    "Kholil Abdi Prasetiyo",
+    "Kholilapras",
   ],
 }

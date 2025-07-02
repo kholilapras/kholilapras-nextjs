@@ -46,8 +46,8 @@ export default function RootLayout({
               //jobTitle: "",
               description:
                 "Experienced web developer specializing in modern UI development with React, Next.js, and TypeScript.",
-              url: "https://kholil-portfolio.vercel.app",
-              image: "https://kholil-portfolio.vercel.app/profile.jpg",
+              url: "https://kholilapras.vercel.app",
+              //image: "https://kholil-portfolio.vercel.app/profile.jpg",
               sameAs: ["https://github.com/kholilapras", "https://linkedin.com/in/kholilapras", "mailto:kholilapras@gmail.com"],
               knowsAbout: [
                 "Web Development",
