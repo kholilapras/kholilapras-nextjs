@@ -9,8 +9,8 @@ interface SEOHeadProps {
 }
 
 export function SEOHead({
-  title = "Kholil Abdi Prasetiyo - Web Developer Portfolio",
-  description = "Experienced web developer specializing in modern UI development with React, Next.js, and TypeScript.",
+  title = "Kholil Abdi Prasetiyo - Portfolio",
+  //description = "Experienced web developer specializing in modern UI development with React, Next.js, and TypeScript.",
   canonical,
   noindex = false,
 }: SEOHeadProps) {

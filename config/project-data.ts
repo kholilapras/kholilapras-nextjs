@@ -17,9 +17,13 @@ export interface ProjectData extends ProjectDataBase, ProjectDataTranslated { }
 const projectsBase: ProjectDataBase[] = [
   {
     images: [
-      "/image/1.jpg",
-      "/placeholder.svg?height=360&width=640&text=Menu+Catalog&bg=16a34a&color=ffffff",
-      "/placeholder.svg?height=360&width=640&text=Order+Management&bg=dc2626&color=ffffff",
+      "/image/p1/1.png",
+      "/image/p1/2.png",
+      "/image/p1/3.png",
+      "/image/p1/4.png",
+      "/image/p1/5.png",
+      "/image/p1/6.png",
+
     ],
     technologies: ["HTML", "CSS", "JavaScript", "PHP (Native)", "MySQL"],
     viewCodeUrl: "#",

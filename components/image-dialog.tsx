@@ -76,15 +76,20 @@ export function ImageDialog({ isOpen, onClose, images, initialIndex, projectTitl
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-background border-0 shadow-2xl">
-        <DialogHeader className="p-4 pb-2 border-b border-border">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <DialogTitle className="text-lg font-semibold text-foreground">{projectTitle}</DialogTitle>
+      <DialogContent className="w-full max-w-[100vw] h-[100dvh] p-0 sm:max-w-7xl sm:h-[95vh] bg-background border-0 shadow-2xl flex flex-col">
+        {/* HEADER */}
+        <DialogHeader className="p-3 sm:p-4 pb-2 border-b border-border">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            {/* Title & Counter */}
+            <div className="flex items-center justify-between sm:justify-start gap-4">
+              <DialogTitle className="text-base sm:text-lg font-semibold text-foreground">
+                {projectTitle}
+              </DialogTitle>
               <span className="text-sm text-muted-foreground">{imageCounterText}</span>
             </div>
-            <div className="flex items-center gap-2">
-              {/* Navigation Buttons */}
+
+            {/* Buttons */}
+            <div className="flex items-center justify-end gap-1 sm:gap-2">
               {images.length > 1 && (
                 <>
                   <Button
@@ -107,7 +112,6 @@ export function ImageDialog({ isOpen, onClose, images, initialIndex, projectTitl
                   </Button>
                 </>
               )}
-              {/* Download Button */}
               <Button
                 variant="ghost"
                 size="icon"
@@ -117,7 +121,6 @@ export function ImageDialog({ isOpen, onClose, images, initialIndex, projectTitl
               >
                 <Download className="h-4 w-4" />
               </Button>
-              {/* Close Button */}
               <Button
                 variant="ghost"
                 size="icon"
@@ -131,9 +134,9 @@ export function ImageDialog({ isOpen, onClose, images, initialIndex, projectTitl
           </div>
         </DialogHeader>
 
-        {/* Main Image Container */}
-        <div className="flex-1 relative p-4">
-          <div className="relative w-full h-full min-h-[60vh] bg-muted/20 rounded-lg overflow-hidden">
+        {/* IMAGE CONTAINER */}
+        <div className="relative flex-1 p-2 sm:p-4">
+          <div className="relative w-full h-full aspect-[16/9] sm:aspect-auto min-h-[40vh] bg-muted/20 rounded-lg overflow-hidden">
             <Image
               src={images[currentIndex] || "/placeholder.svg"}
               alt={`${projectTitle} - ${imageCounterText}`}
@@ -147,66 +150,38 @@ export function ImageDialog({ isOpen, onClose, images, initialIndex, projectTitl
                 <div className="w-8 h-8 border-2 border-muted-foreground/30 border-t-foreground rounded-full animate-spin" />
               </div>
             )}
-
-            {/* Navigation Arrows on Image */}
-            {images.length > 1 && (
-              <>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background/90 border-0 w-10 h-10 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  onClick={goToPrevious}
-                  aria-label={t.modal.previousImage}
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background/90 border-0 w-10 h-10 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  onClick={goToNext}
-                  aria-label={t.modal.nextImage}
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </>
-            )}
           </div>
         </div>
 
-        {/* Bottom Navigation - Only Thumbnails */}
+        {/* THUMBNAIL */}
         {images.length > 1 && (
-          <div className="p-4 pt-0 border-t border-border">
-            {/* Thumbnail Navigation */}
-            <br />
-            <div className="flex justify-center gap-2 overflow-x-auto pb-2 max-w-full">
-              <div className="flex gap-2 px-4">
-                {images.map((image, index) => (
-                  <button
-                    key={index}
-                    className={`relative flex-shrink-0 w-20 h-14 rounded-md overflow-hidden transition-all duration-300 border-2 ${
-                      index === currentIndex
-                        ? "border-foreground scale-105 shadow-lg"
-                        : "border-transparent opacity-70 hover:opacity-100 hover:border-muted-foreground/50"
+          <div className="p-2 sm:p-4 pt-0 border-t border-border">
+            <div className="flex gap-2 overflow-x-auto max-w-full pb-2 scrollbar-thin scrollbar-thumb-muted-foreground/30">
+              {images.map((image, index) => (
+                <button
+                  key={index}
+                  className={`relative flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-md overflow-hidden transition-all duration-300 border-2 ${index === currentIndex
+                    ? "border-foreground scale-105 shadow-md"
+                    : "border-transparent opacity-70 hover:opacity-100 hover:border-muted-foreground/50"
                     }`}
-                    onClick={() => goToSlide(index)}
-                    aria-label={`${t.modal.imageCounter
-                      .replace("{current}", (index + 1).toString())
-                      .replace("{total}", images.length.toString())}`}
-                  >
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`Thumbnail ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
+                  onClick={() => goToSlide(index)}
+                  aria-label={`${t.modal.imageCounter
+                    .replace("{current}", (index + 1).toString())
+                    .replace("{total}", images.length.toString())}`}
+                >
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt={`Thumbnail ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </button>
+              ))}
             </div>
           </div>
         )}
       </DialogContent>
     </Dialog>
+
   )
 }
