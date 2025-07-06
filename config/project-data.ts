@@ -13,119 +13,179 @@ export interface ProjectDataTranslated {
 
 export interface ProjectData extends ProjectDataBase, ProjectDataTranslated { }
 
-// Base project data (language-independent)
-const projectsBase: ProjectDataBase[] = [
-  {
-    images: [
-      "/image/p1/1.png",
-      "/image/p1/2.png",
-      "/image/p1/3.png",
-      "/image/p1/4.png",
-      "/image/p1/5.png",
-      "/image/p1/6.png",
+const projectConfigs: Array<{
+  base: {
+    images: string[]
+    technologies: string[]
+    viewCodeUrl?: string
+    viewLiveUrl?: string
+  }
+  translations: {
+    en: {
+      title: string
+      description: string
+      category: string
+    }
+    id: {
+      title: string
+      description: string
+      category: string
+    }
+  }
+}> = [
+    // Project 1: FnB Web
+    {
+      base: {
+        images: [
+          "/image/p1/1.png",
+          "/image/p1/2.png",
+          "/image/p1/3.png",
+          "/image/p1/4.png",
+          "/image/p1/5.png",
+          "/image/p1/6.png",
+          "/image/p1/7.png",
+          "/image/p1/8.png",
+          "/image/p1/9.png",
+        ],
+        technologies: ["HTML", "CSS", "JavaScript", "PHP (Native)", "MySQL"],
+        viewCodeUrl: "https://github.com/kholilapras/FnB_web",
+        viewLiveUrl: "https://github.com/kholilapras/FnB_web",
+      },
+      translations: {
+        en: {
+          title: "FnB Web",
+          description:
+            "FnB Web is a landing page specifically designed to support Micro, Small, and Medium Enterprises (MSMEs) in the food and beverage sector in promoting their products digitally. This website is equipped with a Content Management System (CMS) that allows administrators to easily manage and update the content on the landing page. With a modern design and user-friendly navigation menu, it provides a pleasant experience for visitors and helps increase consumer appeal and reach.",
+          category: "Web Development",
+        },
+        id: {
+          title: "FnB Web",
+          description:
+            "FnB Web adalah landing page yang dirancang khusus untuk mendukung pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) di sektor makanan dan minuman dalam mempromosikan produk mereka secara digital. Website ini dilengkapi dengan Content Management System (CMS) yang memungkinkan pengelola untuk mengatur dan memperbarui konten pada landing page secara mudah.  Dengan tampilan yang modern dan menu navigasi yang mudah, akan memberikan pengalaman yang nyaman bagi pengunjung serta membantu meningkatkan daya tarik dan jangkauan konsumen.",
+          category: "Pengembangan Web",
+        },
+      },
+    },
 
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "PHP (Native)", "MySQL"],
-    viewCodeUrl: "#",
-    viewLiveUrl: "#",
-  },
-  {
-    images: [
-      "/placeholder.svg?height=360&width=640&text=POS+Homepage&bg=7c3aed&color=ffffff",
-      "/placeholder.svg?height=360&width=640&text=Product+Grid&bg=ea580c&color=ffffff",
-      "/placeholder.svg?height=360&width=640&text=Shopping+Cart&bg=0891b2&color=ffffff",
-      "/placeholder.svg?height=360&width=640&text=Admin+Panel&bg=be123c&color=ffffff",
-    ],
-    technologies: ["React", "Redux", "Node.js", "MongoDB"],
-    viewCodeUrl: "#",
-    viewLiveUrl: "#",
-  },
-  {
-    images: [
-      "/placeholder.svg?height=360&width=640&text=Task+Dashboard&bg=059669&color=ffffff",
-      "/placeholder.svg?height=360&width=640&text=Calendar+View&bg=7c2d12&color=ffffff",
-    ],
-    technologies: ["Dart", "Flutter", "Supabase", "GetX"],
-    viewCodeUrl: "#",
-    viewLiveUrl: "#",
-  },
-  {
-    images: [
-      "/placeholder.svg?height=360&width=640&text=TOPSIS+Analysis&bg=1e40af&color=ffffff",
-      "/placeholder.svg?height=360&width=640&text=Results+Matrix&bg=991b1b&color=ffffff",
-      "/placeholder.svg?height=360&width=640&text=Report+Generator&bg=365314&color=ffffff",
-    ],
-    technologies: ["HTML", "Bootstrap", "JavaScript (Vanilla)"],
-    viewCodeUrl: "#",
-    viewLiveUrl: "#",
-  },
-]
+    // Project 2: TasksApp
+    {
+      base: {
+        images: [
+          "/placeholder.svg",
+          "/placeholder.svg",
+        ],
+        technologies: ["Dart", "Flutter", "Supabase", "GetX"],
+        viewCodeUrl: "#",
+        viewLiveUrl: "#",
+      },
+      translations: {
+        en: {
+          title: "TasksApp",
+          description:
+            "-",
+          category: "Mobile App",
+        },
+        id: {
+          title: "TasksApp",
+          description:
+            "-",
+          category: "Aplikasi Mobile",
+        },
+      },
+    },
 
-// Translated content (language-dependent)
-const projectsTranslations: Record<"en" | "id", ProjectDataTranslated[]> = {
-  en: [
+    // Project 3: POS
     {
-      title: "FnB Web",
-      description:
-        "FnB Web is a digital platform designed to support Micro, Small, and Medium Enterprises (MSMEs) in the food and beverage sector in promoting their products. Featuring a user-friendly interface and comprehensive tools such as a menu catalog, online ordering guide, and business information, this website empowers MSMEs to compete in the digital era.",
-      category: "Web Development",
+      base: {
+        images: [
+          "/placeholder.svg",
+          "/placeholder.svg",
+        ],
+        technologies: ["Laravel", "React", "Inertia JS", "Tailwind CSS", "MySQL"],
+        viewCodeUrl: "#",
+        viewLiveUrl: "#",
+      },
+      translations: {
+        en: {
+          title: "POS",
+          description:
+            "-",
+          category: "Web Development",
+        },
+        id: {
+          title: "POS",
+          description:
+            "-",
+          category: "Web Development",
+        },
+      },
     },
-    {
-      title: "POSting",
-      description:
-        "Online store application with cart, checkout, and product management features. Built with React and Node.js for modern e-commerce solutions.",
-      category: "Web Development",
-    },
-    {
-      title: "Tasks App",
-      description:
-        "Daily task management app with drag & drop, categories, and reminder features. Built with Flutter for cross-platform mobile experience.",
-      category: "Mobile App",
-    },
-    {
-      title: "REPAKIN-TOPSIS",
-      description:
-        "Decision support system using TOPSIS method for repair shop recommendation analysis. Helps users make informed decisions based on multiple criteria evaluation.",
-      category: "Web Development",
-    },
-  ],
-  id: [
-    {
-      title: "FnB Web",
-      description:
-        "FnB Web adalah platform digital yang dirancang untuk mendukung pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) di sektor makanan dan minuman dalam mempromosikan produk mereka. Dengan tampilan yang ramah pengguna serta fitur lengkap seperti katalog menu, panduan pemesanan online, dan informasi usaha, website ini hadir untuk membantu UMKM bersaing di era digital.",
-      category: "Pengembangan Web",
-    },
-    {
-      title: "POSting",
-      description:
-        "Aplikasi toko online dengan fitur keranjang, checkout, dan manajemen produk. Dibangun dengan React dan Node.js untuk solusi e-commerce modern.",
-      category: "Pengembangan Web",
-    },
-    {
-      title: "Tasks App",
-      description:
-        "Aplikasi untuk mengelola tugas harian dengan fitur drag & drop, kategori, dan reminder. Dibangun dengan Flutter untuk pengalaman mobile lintas platform.",
-      category: "Aplikasi Mobile",
-    },
-    {
-      title: "REPAKIN-TOPSIS",
-      description:
-        "Sistem pendukung keputusan menggunakan metode TOPSIS untuk analisis rekomendasi bengkel. Membantu pengguna membuat keputusan berdasarkan evaluasi multi-kriteria.",
-      category: "Pengembangan Web",
-    },
-  ],
-}
 
-// Combine base data with translations
+    // Project 4: REPAKINET
+    {
+      base: {
+        images: [
+          "/placeholder.svg?height=360&width=640&text=TOPSIS+Analysis&bg=1e40af&color=ffffff",
+          "/placeholder.svg?height=360&width=640&text=Results+Matrix&bg=991b1b&color=ffffff",
+          "/placeholder.svg?height=360&width=640&text=Report+Generator&bg=365314&color=ffffff",
+        ],
+        technologies: ["HTML", "Bootstrap", "JavaScript (Vanilla)"],
+        viewCodeUrl: "#",
+        viewLiveUrl: "#",
+      },
+      translations: {
+        en: {
+          title: "REPAKIN-TOPSIS",
+          description:
+            "",
+          category: "Web Development",
+        },
+        id: {
+          title: "REPAKIN-TOPSIS",
+          description:
+            "",
+          category: "Pengembangan Web",
+        },
+      },
+    },
+
+    // Project 5: Network Speed Live
+    {
+      base: {
+        images: [
+          "/placeholder.svg?height=360&width=640&text=Portfolio+Homepage&bg=8b5cf6&color=ffffff",
+          "/placeholder.svg?height=360&width=640&text=Project+Gallery&bg=f59e0b&color=ffffff",
+        ],
+        technologies: ["Python", "TypeScript", "Tailwind CSS"],
+        viewCodeUrl: "",
+        viewLiveUrl: "",
+      },
+      translations: {
+        en: {
+          title: "Network Speed Live",
+          description:
+            "-",
+          category: "Desktop",
+        },
+        id: {
+          title: "Network Speed Live",
+          description:
+            "-",
+          category: "Desktop",
+        },
+      },
+    },
+  ]
+
+// Generate projects from configurations
 export const projects: Record<"en" | "id", ProjectData[]> = {
-  en: projectsBase.map((base, index) => ({
-    ...base,
-    ...projectsTranslations.en[index],
+  en: projectConfigs.map((config) => ({
+    ...config.base,
+    ...config.translations.en,
   })),
-  id: projectsBase.map((base, index) => ({
-    ...base,
-    ...projectsTranslations.id[index],
+  id: projectConfigs.map((config) => ({
+    ...config.base,
+    ...config.translations.id,
   })),
 }
 
@@ -147,5 +207,23 @@ export function createProject(
   return {
     en: { ...baseData, ...translations.en },
     id: { ...baseData, ...translations.id },
+  }
+}
+
+// Helper function to add new project using the new structure
+export function addProjectConfig(config: {
+  base: {
+    images: string[]
+    technologies: string[]
+    viewCodeUrl?: string
+    viewLiveUrl?: string
+  }
+  translations: Record<"en" | "id", ProjectDataTranslated>
+}) {
+  projectConfigs.push(config)
+  // Regenerate projects object
+  return {
+    en: projectConfigs.map((c) => ({ ...c.base, ...c.translations.en })),
+    id: projectConfigs.map((c) => ({ ...c.base, ...c.translations.id })),
   }
 }
