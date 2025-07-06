@@ -37,15 +37,15 @@ const projectConfigs: Array<{
     {
       base: {
         images: [
-          "/image/p1/1.png",
-          "/image/p1/2.png",
-          "/image/p1/3.png",
-          "/image/p1/4.png",
-          "/image/p1/5.png",
-          "/image/p1/6.png",
-          "/image/p1/7.png",
-          "/image/p1/8.png",
-          "/image/p1/9.png",
+          "/p1/1.png",
+          "/p1/2.png",
+          "/p1/3.png",
+          "/p1/4.png",
+          "/p1/5.png",
+          "/p1/6.png",
+          "/p1/7.png",
+          "/p1/8.png",
+          "/p1/9.png",
         ],
         technologies: ["HTML", "CSS", "JavaScript", "PHP (Native)", "MySQL"],
         viewCodeUrl: "https://github.com/kholilapras/FnB_web",
@@ -153,24 +153,23 @@ const projectConfigs: Array<{
     {
       base: {
         images: [
-          "/placeholder.svg?height=360&width=640&text=Portfolio+Homepage&bg=8b5cf6&color=ffffff",
-          "/placeholder.svg?height=360&width=640&text=Project+Gallery&bg=f59e0b&color=ffffff",
+          "/p5/1.png",
         ],
-        technologies: ["Python", "TypeScript", "Tailwind CSS"],
-        viewCodeUrl: "",
-        viewLiveUrl: "",
+        technologies: ["Python"],
+        viewCodeUrl: "https://github.com/kholilapras/NetworkSpeedLive",
+        viewLiveUrl: "https://github.com/kholilapras/NetworkSpeedLive/releases",
       },
       translations: {
         en: {
           title: "Network Speed Live",
           description:
-            "-",
+            "Network Speed Live is a lightweight desktop application for monitoring internet speed in real time. It displays download and upload speeds through a small, transparent overlay on the screen. The app includes a system tray icon for quick access and can run automatically when the computer starts. Network Speed Live is available as a (.exe) file and is specifically designed as a real-time network speed overlay for Windows 11.",
           category: "Desktop",
         },
         id: {
           title: "Network Speed Live",
           description:
-            "-",
+            "Network Speed Live adalah aplikasi desktop ringan untuk memantau kecepatan internet secara langsung. Aplikasi ini menampilkan kecepatan unduh dan unggah melalui tampilan kecil yang transparan di layar. Dilengkapi dengan ikon di system tray untuk akses cepat, serta bisa berjalan otomatis saat komputer dinyalakan. Network Speed Live hadir dalam bentuk file (.exe) dan dirancang khusus sebagai overlay kecepatan jaringan real-time untuk Windows 11.",
           category: "Desktop",
         },
       },

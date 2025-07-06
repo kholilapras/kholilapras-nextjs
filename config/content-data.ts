@@ -26,13 +26,13 @@ export const content: Record<"en" | "id", ContentData> = {
   en: {
     name: "Kholil Abdi Prasetiyo",
     description:
-      "I am a web developer focused on developing modern UI with the latest technologies. Experienced in building responsive and user-friendly web applications.",
+      "I am a Software Engineering student at Telkom University with interest in software development and digital solutions. My main focus is on designing and building responsive, efficient, and user-friendly applications and systems to effectively real problems.",
     projectsTitle: "Projects",
-    contactTitle: "Send Message",
+    contactTitle: "Contact",
     contact: {
       namePlaceholder: "Enter your name",
-      emailPlaceholder: "user.name@example.com",
-      messagePlaceholder: "What would you like to say?",
+      emailPlaceholder: "Enter your email address",
+      messagePlaceholder: "Write your message",
       submitButton: "Submit Message",
     },
     buttons: {
@@ -50,13 +50,13 @@ export const content: Record<"en" | "id", ContentData> = {
   id: {
     name: "Kholil Abdi Prasetiyo",
     description:
-      "Saya adalah seorang web developer yang fokus pada pengembangan UI modern dengan teknologi terbaru. Berpengalaman dalam membangun aplikasi web yang responsif dan user-friendly.",
+      "Saya adalah mahasiswa Rekayasa Perangkat Lunak di Universitas Telkom dengan minat dalam pengembangan perangkat lunak dan solusi digital. Fokus utama saya adalah merancang dan membangun aplikasi dan sistem yang responsif, efisien, dan mudah digunakan untuk mengatasi masalah nyata secara efektif.",
     projectsTitle: "Proyek",
-    contactTitle: "Kirim Pesan",
+    contactTitle: "Kontak",
     contact: {
       namePlaceholder: "Masukkan nama Anda",
-      emailPlaceholder: "user.name@example.com",
-      messagePlaceholder: "Tulis pesan Anda di sini",
+      emailPlaceholder: "Masukkan alamat email Anda",
+      messagePlaceholder: "Tuliskan pesan Anda",
       submitButton: "Kirim Pesan",
     },
     buttons: {
