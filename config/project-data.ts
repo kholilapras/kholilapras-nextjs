@@ -128,7 +128,7 @@ const projectConfigs: Array<{
           "/p4/2.png",
           "/p4/1.png",
         ],
-        technologies: ["HTML", "Bootstrap", "JavaScript (Vanilla)"],
+        technologies: ["JavaScript (Vanilla)", "HTML", "Bootstrap"],
         viewCodeUrl: "https://github.com/kholilapras/REPAKINET",
         viewLiveUrl: "https://repakinet.vercel.app/",
       },
