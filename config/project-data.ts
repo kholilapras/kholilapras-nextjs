@@ -125,8 +125,8 @@ const projectConfigs: Array<{
     {
       base: {
         images: [
-          "/p4/",
-          "/p4/",
+          "/p4/1.png",
+          "/p4/2.png",
         ],
         technologies: ["HTML", "Bootstrap", "JavaScript (Vanilla)"],
         viewCodeUrl: "https://github.com/kholilapras/REPAKINET",
