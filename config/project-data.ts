@@ -125,25 +125,24 @@ const projectConfigs: Array<{
     {
       base: {
         images: [
-          "/placeholder.svg?height=360&width=640&text=TOPSIS+Analysis&bg=1e40af&color=ffffff",
-          "/placeholder.svg?height=360&width=640&text=Results+Matrix&bg=991b1b&color=ffffff",
-          "/placeholder.svg?height=360&width=640&text=Report+Generator&bg=365314&color=ffffff",
+          "/p4/",
+          "/p4/",
         ],
         technologies: ["HTML", "Bootstrap", "JavaScript (Vanilla)"],
-        viewCodeUrl: "#",
-        viewLiveUrl: "#",
+        viewCodeUrl: "https://github.com/kholilapras/REPAKINET",
+        viewLiveUrl: "https://repakinet.vercel.app/",
       },
       translations: {
         en: {
-          title: "REPAKIN-TOPSIS",
+          title: "REPAKINET",
           description:
-            "",
+            "REPAKINET is a web application that helps users choose the most efficient internet data package using the TOPSIS method (Technique for Order Preference by Similarity to Ideal Solution). Users can input package details such as data quota (GB), price (Rp), validity period (days), and an description.",
           category: "Web Development",
         },
         id: {
-          title: "REPAKIN-TOPSIS",
+          title: "REPAKINET",
           description:
-            "",
+            "REPAKINET adalah aplikasi web yang membantu pengguna memilih paket internet terbaik berdasarkan metode perhitungan TOPSIS (Technique for Order Preference by Similarity to Ideal Solution). Pengguna dapat memasukkan data paket seperti kuota (GB), harga (Rp), masa aktif (hari), dan keterangan.",
           category: "Pengembangan Web",
         },
       },
