@@ -71,24 +71,24 @@ const projectConfigs: Array<{
     {
       base: {
         images: [
-          "/placeholder.svg",
-          "/placeholder.svg",
+          "/p2/1.png",
+          "/p2/2.png",
         ],
         technologies: ["Dart", "Flutter", "Supabase", "GetX"],
-        viewCodeUrl: "#",
-        viewLiveUrl: "#",
+        viewCodeUrl: "https://github.com/kholilapras/NoteTask",
+        viewLiveUrl: "https://drive.google.com/file/d/1hO3rwgRZD-CIptZGQZT2MDiWFHY0YRUH/view?usp=sharing",
       },
       translations: {
         en: {
-          title: "TasksApp",
+          title: "NoteTask",
           description:
-            "-",
+            "NoteTask is a task and note management application that helps users easily record, organize, and prioritize their daily activities in one place. Featuring automatic Google authentication, task list and detail management, important task marking, and theme options (Dark/Light), NoteTask is designed to enhance productivity with a clean and simple interface.",
           category: "Mobile App",
         },
         id: {
-          title: "TasksApp",
+          title: "NoteTask",
           description:
-            "-",
+            "NoteTask adalah aplikasi manajemen catatan dan tugas yang memudahkan pengguna mencatat, mengatur, dan memprioritaskan aktivitas harian dalam satu tempat. Dengan fitur autentikasi otomatis Google, manajemen daftar dan detail tugas, penandaan tugas penting, serta pilihan tema (Gelap/Terang), NoteTask dirancang untuk menunjang produktivitas dengan antarmuka yang sederhana.",
           category: "Aplikasi Mobile",
         },
       },
