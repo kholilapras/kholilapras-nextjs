@@ -74,7 +74,7 @@ const projectConfigs: Array<{
           "/p2/1.png",
           "/p2/2.png",
         ],
-        technologies: ["Dart", "Flutter", "Supabase", "GetX"],
+        technologies: ["Dart", "Flutter", "Supabase", "GetX", "Postman"],
         viewCodeUrl: "https://github.com/kholilapras/NoteTask",
         viewLiveUrl: "https://drive.google.com/file/d/1hO3rwgRZD-CIptZGQZT2MDiWFHY0YRUH/view?usp=sharing",
       },
@@ -94,29 +94,44 @@ const projectConfigs: Array<{
       },
     },
 
-    // Project 3: POS
+    // Project 3: PlainCashier
     {
       base: {
         images: [
-          "/placeholder.svg",
-          "/placeholder.svg",
+          "/p3/1.png",
+          "/p3/2.png",
+          "/p3/3.png",
+          "/p3/4.png",
+          "/p3/5.png",
+          "/p3/6.png",
+          "/p3/7.png",
+          "/p3/8.png",
+          "/p3/9.png",
+          "/p3/10.png",
+          "/p3/11.png",
+          "/p3/12.png",
+          "/p3/13.png",
+          "/p3/14.png",
+          "/p3/15.png",
+          "/p3/16.png",
+          "/p3/17.png",
         ],
-        technologies: ["Laravel", "React", "Inertia JS", "Tailwind CSS", "MySQL"],
-        viewCodeUrl: "#",
-        viewLiveUrl: "#",
+        technologies: ["Laravel", "TypeScript", "React", "Inertia JS", "Tailwind CSS", "MySQL", "Vite", "Electron"],
+        viewCodeUrl: "https://github.com/kholilapras/PlainCashier",
+        viewLiveUrl: "https://github.com/kholilapras/PlainCashier",
       },
       translations: {
         en: {
-          title: "POS",
+          title: "PlainCashier",
           description:
-            "-",
-          category: "Web Development",
+            "PlainCashier is a point-of-sale application built using the Laravel framework that can be run on the web or as a desktop application using Electron. This application is designed to simplify sales transactions with features such as a user-friendly cashier interface, product management (name, price, and stock), automatic stock calculation, total purchase summary, and payment processing. In addition, users can add products manually or import them via CSV files.",
+          category: "Web & Desktop App",
         },
         id: {
-          title: "POS",
+          title: "PlainCashier",
           description:
-            "-",
-          category: "Web Development",
+            "PlainCashier adalah aplikasi kasir menggunakan framework Laravel yang dapat dijalankan melalui web maupun sebagai aplikasi desktop menggunakan Electron. Aplikasi ini dirancang untuk mempermudah proses transaksi penjualan dengan fitur antarmuka kasir yang sederhana, manajemen produk (nama, harga, dan stok), perhitungan otomatis stok, total belanja serta pembayaran. Selain itu, pengguna dapat menambahkan produk secara manual maupun melalui impor file CSV.",
+          category: "Web & Desktop App",
         },
       },
     },
